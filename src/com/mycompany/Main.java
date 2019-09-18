@@ -10,9 +10,9 @@ public class Main {
 
         Bandit bandit = new Bandit();
         BlackJack blackJack = new BlackJack();
-        System.out.println("Добро пожаловать в Казино!");
-        System.out.println("Выберите игру цифрами");
-        System.out.println("1. Однорукий бандит");
+        System.out.println("Welcome!");
+        System.out.println("Choose a game with numbers");
+        System.out.println("1. One-armed bandit");
         System.out.println("2. Black Jack");
         int i = sc.nextInt();
         switch (i) {

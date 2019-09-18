@@ -7,24 +7,25 @@ public class BlackJack extends Credits implements RunGames {
 
     @Override
     public void playGame() {
-        int[] koloda = new int[11];
-        int resultUser1 = new Random().nextInt(koloda.length);
-        int resultUser2 = new Random().nextInt(koloda.length);
-        int summUser = resultUser1 + resultUser2;
-        System.out.println("Вам выпало "
+        int[] cardDeck = new int[11];
+        int resultUser1 = new Random().nextInt(cardDeck.length);
+        int resultUser2 = new Random().nextInt(cardDeck.length);
+        int amountUser = resultUser1 + resultUser2;
+        System.out.println("Your cards "
                 + resultUser1 + " " + resultUser2 +
-                " в сумме " + summUser);
+                " Amount: " + amountUser);
 
-        int resultDiler1 = new Random().nextInt(koloda.length);
-        int resultDiler2 = new Random().nextInt(koloda.length);
-        int summDiler = resultDiler1 + resultDiler2;
-        System.out.println("Дилеру выпало "
-                + resultDiler1 + " " + resultDiler2 +
-                " в сумме: " + summDiler);
-        if (summDiler < summUser) {
+        int resultCroupier1 = new Random().nextInt(cardDeck.length);
+        int resultCroupier2 = new Random().nextInt(cardDeck.length);
+        int amountCroupier = resultCroupier1 + resultCroupier2;
+        System.out.println("Croupier cars "
+                + resultCroupier1 + " " + resultCroupier2 +
+                " Amount: " + amountCroupier);
+        if (amountCroupier < amountUser) {
 
-            System.out.println("Вы выишрали " + stavka + ". Ваш баланс " + kush);
-            System.out.println("Желаете продолжить? 1.Да; 2. Нет;");
+
+            System.out.println("You winner: " + stavka + " Balance: " + kush);
+            System.out.println("Do you want continue? 1.Yes; 2. No;");
             select = sc.nextInt();
             switch (select) {
                 case 1:
@@ -33,10 +34,10 @@ public class BlackJack extends Credits implements RunGames {
                 case 2:
                     break;
             }
-        } else if (summDiler == summUser) {
-            System.out.println("Ничья");
-            System.out.println("У Вас на счете: " + coin);
-            System.out.println("Желаете продолжить? 1.Да; 2. Нет;");
+        } else if (amountCroupier == amountUser) {
+            System.out.println("Draw");
+            System.out.println("Your balance: " + coin);
+            System.out.println("Do you want continue? 1.Yes; 2. No;");
             select = sc.nextInt();
             switch (select) {
                 case 1:
@@ -48,10 +49,10 @@ public class BlackJack extends Credits implements RunGames {
         } else {
 
             if (coin <= 0) {
-                System.out.println("Извините Ваш баланс отрицательный.");
+                System.out.println("Sorry, You balance is negative.");
             } else {
-                System.out.println("Вы проиграли " + stavka + ". Ваш баланс " + minus);
-                System.out.println("Желаете продолжить? 1.Да; 2. Нет;");
+                System.out.println("You loss " + stavka + " Balance " + minus);
+                System.out.println("Do you want continue? 1.Yes; 2. No;");
                 select = sc.nextInt();
                 switch (select) {
                     case 1:
@@ -69,13 +70,13 @@ public class BlackJack extends Credits implements RunGames {
 
     @Override
     public void runGame() {
-        System.out.println("Какую суммы вносите?");
+        System.out.println("How much do you deposit?");
         coin = sc.nextInt();
-        System.out.println("Какую ставку выбираем?");
+        System.out.println("Which bid do you choose?");
         stavka = sc.nextInt();
-        System.out.println("Игра началась:");
+        System.out.println("The game started:");
 
         playGame();
-        System.out.println("У вас осталось " + coin);
+        System.out.println("Your balance " + coin);
     }
 }
